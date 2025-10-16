@@ -1,23 +1,15 @@
 public class Dolphin extends Aquatic {
-    protected float swimmingSpeed;
+    private int speed;
 
-    // Constructeur par défaut
-    public Dolphin() {
+    public Dolphin(String name, int age, String habitat, int speed) {
+        super(name, age, habitat);
+        this.speed = speed;
     }
 
-    public Dolphin(String family, String name, int age, boolean isMammal,
-                   String habitat, float swimmingSpeed) {
-        super(family, name, age, isMammal, habitat);
-        this.swimmingSpeed = swimmingSpeed;
-    }
+    public int getSpeed() { return speed; }
 
     @Override
     public void swim() {
-        System.out.println("This dolphin is swimming.");
-    }
-
-    @Override
-    public String toString() {
-        return super.toString() + ", Swimming Speed: " + swimmingSpeed + " km/h";
+        System.out.println(getName() + " nage à une vitesse de " + speed + " km/h !");
     }
 }

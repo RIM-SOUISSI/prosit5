@@ -1,18 +1,15 @@
 public class Penguin extends Aquatic {
-    protected float swimmingDepth;
+    private double divingDepth;
 
-    // Constructeur par défaut
-    public Penguin() {
+    public Penguin(String name, int age, String habitat, double divingDepth) {
+        super(name, age, habitat);
+        this.divingDepth = divingDepth;
     }
 
-    public Penguin(String family, String name, int age, boolean isMammal,
-                   String habitat, float swimmingDepth) {
-        super(family, name, age, isMammal, habitat);
-        this.swimmingDepth = swimmingDepth;
-    }
+    public double getDivingDepth() { return divingDepth; }
 
     @Override
-    public String toString() {
-        return super.toString() + ", Swimming Depth: " + swimmingDepth + " meters";
+    public void swim() {
+        System.out.println(getName() + " nage à une profondeur de " + divingDepth + " mètres !");
     }
 }

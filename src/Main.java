@@ -1,40 +1,24 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("=== Instanciation avec constructeurs par défaut ===");
-        Aquatic aquatic1 = new Aquatic();
-        Terrestrial terrestrial1 = new Terrestrial();
-        Dolphin dolphin1 = new Dolphin();
-        Penguin penguin1 = new Penguin();
+        Zoo zoo = new Zoo();
 
-        System.out.println("Objets créés avec succès !");
-        System.out.println("\n=== Instanciation avec constructeurs paramétrés ===");
+        Dolphin d1 = new Dolphin("Flippy", 5, "Mer", 25);
+        Dolphin d2 = new Dolphin("Blue", 8, "Océan", 30);
+        Penguin p1 = new Penguin("Pingu", 4, "Arctique", 50);
+        Penguin p2 = new Penguin("Ice", 6, "Antarctique", 80);
 
-        Aquatic aquatic2 = new Aquatic("Poisson", "Poisson-clown", 2, false, "Récif corallien");
-        Terrestrial terrestrial2 = new Terrestrial("Félin", "Lion", 5, true, 4);
-        Dolphin dolphin2 = new Dolphin("Delphinidés", "Dauphin commun", 8, true, "Océan", 45.5f);
-        Penguin penguin2 = new Penguin("Sphéniscidés", "Manchot empereur", 3, false, "Antarctique", 500.0f);
+        zoo.addAquaticAnimal(d1);
+        zoo.addAquaticAnimal(d2);
+        zoo.addAquaticAnimal(p1);
+        zoo.addAquaticAnimal(p2);
 
-        System.out.println("Objets créés avec constructeurs paramétrés !");
+        System.out.println("\n=== Tous les animaux nagent ===");
+        zoo.makeAllSwim();
 
-        // Instruction 23 : Test de toString()
-        System.out.println("\n=== Affichage avec toString() ===");
-        System.out.println("Aquatic: " + aquatic2.toString());
-        System.out.println("Terrestrial: " + terrestrial2.toString());
-        System.out.println("Dolphin: " + dolphin2.toString());
-        System.out.println("Penguin: " + penguin2.toString());
+        System.out.println("\n=== Profondeur maximale des pingouins ===");
+        System.out.println(zoo.getMaxPenguinDepth() + " mètres");
 
-        // Instruction 24 : Test du comportement de nage
-        System.out.println("\n=== Comportement de nage ===");
-        Aquatic aquaticTest = new Aquatic("Poisson", "Thon", 3, false, "Océan");
-        aquaticTest.swim();
-        dolphin2.swim();
-        penguin2.swim();
-
-        System.out.println("\n=== Test polymorphique ===");
-        Aquatic[] aquaticAnimals = {aquaticTest, dolphin2, penguin2};
-
-        for (Aquatic animal : aquaticAnimals) {
-            animal.swim(); // Comportement différent selon le type réel
-        }
+        System.out.println("\n=== Nombre d’animaux par type ===");
+        zoo.displayCountByType();
     }
 }
