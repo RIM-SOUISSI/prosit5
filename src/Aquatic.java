@@ -13,15 +13,19 @@ public abstract class Aquatic {
     public abstract void swim();
 
     // Getters
-    public String getName() { return name; }
-    public int getAge() { return age; }
-    public String getHabitat() { return habitat; }
+    public String getName()
+    { return name;
+    }
+    public int getAge() {
+        return age; }
+    public String getHabitat() {
+        return habitat; }
 
     // Redéfinition de equals()
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (!(obj instanceof Aquatic)) return false;
+        if (!(obj instanceof Aquatic)) return false;//instanceof pour verifier le type Aquatic//
         Aquatic other = (Aquatic) obj;
         return this.name.equals(other.name)
                 && this.age == other.age
@@ -30,6 +34,6 @@ public abstract class Aquatic {
 
     @Override
     public String toString() {
-        return name + " (" + getClass().getSimpleName() + "), âge: " + age + ", habitat: " + habitat;
+        return name + " (" + getClass().getSimpleName() + "), âge: " + age + ", habitat: " +habitat;
     }
 }
